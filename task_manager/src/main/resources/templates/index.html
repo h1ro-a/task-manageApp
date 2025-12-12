@@ -11,25 +11,26 @@
     <div th:object="${loginForm}">
         <h3>ログイン画面</h3>
         <!-- エラーメッセージの出力(入力チェック) -->
-        <p>
-            <span th:each="error:${#fields.detailedErrors()}"> 
-                <span th:text="${error.message}"></span><br />
-            </span>
-            <span th:text="${errMessage}"></span>
-        </p>
+<!--         <p> -->
+<!--             <span th:each="error:${#fields.detailedErrors()}">  -->
+<!--                 <span th:text="${error.message}"></span><br /> -->
+<!--             </span> -->
+<!--             <span th:text="${errMessage}"></span> -->
+<!--         </p> -->
         <!-- エラーメッセージの出力(存在チェック) -->
-        <!--<div class="login_form">
+        <div class="login_form">
+        ここにログインフォームを作成
             <form method="post" th:action="@{/login}">
                 <div class="login_form">
-                <div class="login_label">社員ID</div>
+                <div class="login_label">ログインID</div>
                 <div class="login_input">
-                    <input type="text" th:field="*{empId}" />
+                    <input type="text" th:field="*{loginId}" />
                 </div>
                 </div>
                 <div class="login_form">
                 <div class="login_label">パスワード</div>
                 <div class="login_input">
-                    <input type="password" th:field="*{empPass}" />
+                    <input type="password" th:field="*{password}" />
                 </div>
                 </div>
                 <div class="login_form">
@@ -39,7 +40,7 @@
                 </div>
                 </div>
             </form>
-        </div>-->
+        </div>
     </div>
     </th:block>
 </body>
