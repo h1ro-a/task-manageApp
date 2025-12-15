@@ -17,7 +17,7 @@ public interface UserMapper {
 	List<User> findAllUsers();
 	
 	/**
-	 * アクティブなユーザーを全件取得 
+	 * アクティブ状態を指定してユーザーを全件取得 
 	 * 
 	 * @param delFlg
 	 * @return アクティブなユーザーエンティティ

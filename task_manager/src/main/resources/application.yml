@@ -12,13 +12,6 @@ spring:
     password: postgres
     driver-class-name: org.postgresql.Driver
     
-  jpa:
-    open-in-view: false
-    hibernate:
-      ddl-auto: update
-      properties:
-        hidernate.format_sql: true
-        hidernate.show_sql: true
-        
-          
- 
+mybatis:
+  mapper-locations: classpath:/com/task_manager/mapper/*.xml
+  type-aliases-package: com.task_manager.entity

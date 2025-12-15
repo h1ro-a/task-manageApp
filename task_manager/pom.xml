@@ -12,7 +12,7 @@
 	<artifactId>task_manager</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>task_manager</name>
-	<description>Spring Bootアプリケーションを利用した積みプラ管理Webアプリケーション</description>
+	<description>Spring Bootアプリケーションをりようしｔ</description>
 	<url/>
 	<licenses>
 		<license/>
@@ -35,20 +35,14 @@
 			<artifactId>spring-boot-starter-thymeleaf</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-webmvc</artifactId>
-		</dependency>
-
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
 			<scope>runtime</scope>
 			<optional>true</optional>
-		</dependency>
-		<dependency>
-			<groupId>org.postgresql</groupId>
-			<artifactId>postgresql</artifactId>
-			<scope>runtime</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.projectlombok</groupId>
@@ -72,12 +66,15 @@
     	    </dependency>
 	    <dependency>
 	        <groupId>org.postgresql</groupId>
-	        <artifactId>postgresql</artifactId>
-	        <version>42.7.2</version>
+	        <artifactId>postgresql</artifactId>	        
 	    </dependency>
         	<dependency>
         		<groupId>org.springframework.boot</groupId>
         		<artifactId>spring-boot-starter-data-jpa</artifactId>
+      	</dependency>
+      	<dependency>
+      	    <groupId>org.springframework.boot</groupId>
+      	    <artifactId>spring-boot-starter-jdbc</artifactId>
       	</dependency>
 		<dependency>
 		    <groupId>org.springframework.boot</groupId>

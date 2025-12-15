@@ -3,6 +3,8 @@ package com.task_manager.dto;
 import com.task_manager.entity.User;
 import com.task_manager.util.LoginErrorType;
 
+import lombok.Data;
+@Data
 public class LoginResultDto {
 	
 	private boolean isLogin;
