@@ -8,12 +8,10 @@ import jakarta.validation.constraints.NotNull;
 
 public class LoginForm {
 	/** ログインID*/
-	@NotNull
 	private String loginId;
 	
 	/** パスワード　*/
-	@NotBlank
-	private String loginPass;
+	private String password;
 	
 	/** 
 	 * ログインIDの取得
@@ -38,17 +36,16 @@ public class LoginForm {
 	 * 
 	 * @return パスワード
 	 * */
-	public String getPass() {
-		return loginPass;
+	public String getPassword() {
+		return password;
 	}
 	
 	/** 
 	 * パスワードのセット
 	 * 
-	 * @param loginPass パスワード
 	 * */
-	public void getloginPass(String loginPass) {
-		this.loginPass = loginPass;
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 }

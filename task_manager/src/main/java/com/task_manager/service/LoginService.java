@@ -23,9 +23,9 @@ public class LoginService {
 	 * */
 	
 	public LoginResultDto execute(LoginForm loginForm) {
-		User loginUser = this.mapper.findByLoginIdAndPassword(loginForm.getloginId(), loginForm.getPass());
+		User loginUser = this.mapper.findByLoginIdAndPassword(loginForm.getloginId(), loginForm.getPassword());
 		if (loginUser == null) {
-			return LoginResultDto.failLogin("ログインID　または　パスワードが間違っています", LoginErrorType.USER_NOT_FOUND);
+			return LoginResultDto.failLogin("ログインID、またはパスワードが間違っています", LoginErrorType.USER_NOT_FOUND);
 		} else {
 			return LoginResultDto.succeedLogin(loginUser);
 		}

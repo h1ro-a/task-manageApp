@@ -58,6 +58,8 @@ public class IndexController {
 		}
 		//　ログイン判定
 		LoginResultDto loginResultDto = loginService.execute(loginForm);
+		System.out.println("loginId=" + loginForm.getloginId());
+		System.out.println("password=" + loginForm.getPassword());
 		if (loginResultDto.isLogin()) {
 			session.setAttribute("user", loginResultDto.getLoginUser());
 			return "redirect:/list";
