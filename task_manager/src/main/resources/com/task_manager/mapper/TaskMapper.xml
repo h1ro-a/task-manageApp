@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.task_manager.mapper.TaskMapper">
+    <!-- 全件検索 -->
+    <select id="findAllTasks"
+        resultType="com.task_manager.entity.Task">
+        SELECT *
+        FROM tasks
+    </select>
+    <!--　削除していないタスクを全件取得 -->
+    <select id="findByDelFlgTasks"
+        resultType="com.task_manager.entity.Task">
+        SELECT * 
+        FROM tasks
+        WHERE del_flg = #{delFlg}
+    </select>
+</mapper>
