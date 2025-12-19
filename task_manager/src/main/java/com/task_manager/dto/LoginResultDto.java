@@ -7,7 +7,7 @@ import lombok.Data;
 @Data
 public class LoginResultDto {
 	
-	private boolean isLogin;
+	private boolean login;
 	
 	private User loginUser;
 	
@@ -22,7 +22,7 @@ public class LoginResultDto {
 	 * */
 	private LoginResultDto(User loginUser) {
 		this.loginUser = loginUser;
-		this.isLogin = true;
+		this.login = true;
 	}
 	
 	/**
@@ -34,6 +34,7 @@ public class LoginResultDto {
 	private LoginResultDto(String errorMsg, LoginErrorType loginErrorType) {
 		this.errorMsg = errorMsg;
 		this.loginErrorType = loginErrorType;
+		this.login = false;
 		
 	}
 	
@@ -56,21 +57,6 @@ public class LoginResultDto {
 	
 	public static LoginResultDto failLogin(String errorMsg, LoginErrorType loginErrorType) {
 		return new LoginResultDto(errorMsg, loginErrorType);
-	}
-	
-	public boolean isLogin() {
-		return isLogin;
-	}
-	
-	public User getLoginUser() {
-		return loginUser;
-	}
-	
-	public String getErrorMsg() {
-		return errorMsg;
-	}
-	public LoginErrorType getloLoginErrorType() {
-		return loginErrorType;
 	}
 
 }

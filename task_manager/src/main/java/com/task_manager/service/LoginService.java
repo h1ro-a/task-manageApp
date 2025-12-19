@@ -23,10 +23,12 @@ public class LoginService {
 	 * */
 	
 	public LoginResultDto execute(LoginForm loginForm) {
-		User loginUser = this.mapper.findByLoginIdAndPassword(loginForm.getloginId(), loginForm.getPassword());
+		User loginUser = this.mapper.findByLoginIdAndPassword(loginForm.getLoginId(), loginForm.getPassword());
 		if (loginUser == null) {
 			return LoginResultDto.failLogin("ログインID、またはパスワードが間違っています", LoginErrorType.USER_NOT_FOUND);
 		} else {
+			System.out.println(loginUser.getUserName());
+			System.out.println(loginUser.getPassword());
 			return LoginResultDto.succeedLogin(loginUser);
 		}
 	}

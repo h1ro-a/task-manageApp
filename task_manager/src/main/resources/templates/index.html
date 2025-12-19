@@ -8,7 +8,6 @@
 </head>
 <body>
     <th:block th:fragment="layout-main">
-    <div th:object="${loginForm}">
         <h3>ログイン画面</h3>
 <!--         エラーメッセージの出力(入力チェック) -->
         <p>
@@ -19,7 +18,7 @@
         </p>
 <!--         エラーメッセージの出力(存在チェック) -->
         <div class="login_form">
-            <form method="post" th:action="@{/login}">
+            <form method="post" th:action="@{/login}" th:object="${loginForm}">
                 <div class="login_form">
                 <div class="login_label">ログインID</div>
                 <div class="login_input">
@@ -40,7 +39,6 @@
                 </div>
             </form>
         </div>
-    </div>
     </th:block>
 </body>
 </html>

@@ -50,22 +50,27 @@ public class IndexController {
 	 * 
 	 * */
 	@RequestMapping(path = "/login", method = RequestMethod.POST)
-	public String login(@Valid @ModelAttribute LoginForm loginForm, BindingResult result, HttpSession session, Model model) {
+	public String login(
+			@Valid @ModelAttribute("loginForm") LoginForm loginForm,
+			BindingResult result,
+			Model model,
+			HttpSession session) {
 		//　入力チェック
+		
 		if (result.hasErrors()) {
 			System.out.println("チェック");
 			return "index";
 		}
 		//　ログイン判定
 		LoginResultDto loginResultDto = loginService.execute(loginForm);
-		System.out.println("loginId=" + loginForm.getloginId());
-		System.out.println("password=" + loginForm.getPassword());
+		
 		if (loginResultDto.isLogin()) {
-			session.setAttribute("user", loginResultDto.getLoginUser());
+			session.setAttribute("loginUser", loginResultDto.getLoginUser());
 			return "redirect:/list";
+		} else {
+			model.addAttribute("errMessage", loginResultDto.getErrorMsg());
+			return "index";
 		}
-		model.addAttribute("errMessage", loginResultDto.getErrorMsg());
-		return "index";
 	}
 
 }

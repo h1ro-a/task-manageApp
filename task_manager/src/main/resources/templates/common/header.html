@@ -9,8 +9,8 @@
     <th:block id="header" th:fragment="layout-header">
         <div class="content">
             <div class="title">タスク管理システム</div>
-                <div th:if="${session.user != null}" class="user_info">
-                    ようこそ、<a th:href="@{/update/input(loginId=${session.user.loginId})}"><span th:text="${session.user.name}"></span></a>さん
+                <div th:if="${session.user != null}">
+                    ようこそ、<a th:text="${session.loginUser.userName}"></a>さん
                     <span class="pipeline">|</span>
                     <a th:href="@{/logout}">ログアウト</a>
                 </div>
