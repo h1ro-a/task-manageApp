@@ -22,7 +22,7 @@
         resultType="com.task_manager.entity.User">
         SELECT *
         FROM users
-        WHERE id = #{Id}
+        WHERE id = #{id}
     </select>
     
     <!--ログインidとパスワードを指定して取得 -->

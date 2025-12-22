@@ -18,7 +18,14 @@ public class MybatisConfig {
 		SqlSessionFactoryBean factoryBean = new SqlSessionFactoryBean();
 		factoryBean.setDataSource(dataSource);
 		
-		// Mapper.xmlの場所
+		//SpringのConfigurationと競合するのでフルパスで指定
+		org.apache.ibatis.session.Configuration configuration = new org.apache.ibatis.session.Configuration();
+		configuration.setMapUnderscoreToCamelCase(true);
+		factoryBean.setConfiguration(configuration);
+		
+		factoryBean.setTypeAliasesPackage("com.task_manager.entity");
+	
+		//Mapper.xmlの場所
 		factoryBean.setMapperLocations(
 				new PathMatchingResourcePatternResolver()
 				.getResources("classpath:/com/task_manager/mapper/*.xml")

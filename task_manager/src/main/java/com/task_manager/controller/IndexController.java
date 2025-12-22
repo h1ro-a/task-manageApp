@@ -72,5 +72,11 @@ public class IndexController {
 			return "index";
 		}
 	}
+	
+	@RequestMapping(path = "/logout", method = RequestMethod.GET)
+	public String logout() {
+		session.invalidate();
+		return "redirect:/";
+	}
 
 }

@@ -1,7 +1,7 @@
 package com.task_manager.entity;
 
 import java.sql.Date;
-import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
 
 import lombok.Data;
 
@@ -26,10 +26,10 @@ public class Task {
 	
 	private Integer mngUser;
 	
-	private LocalDateTime rgstTime;
+	private OffsetDateTime rgstTime;
 	
 	private Integer updtUser;
 	
-	private LocalDateTime updtTime;
+	private OffsetDateTime updtTime;
 	
 }	
