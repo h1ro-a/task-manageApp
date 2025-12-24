@@ -12,7 +12,9 @@
                 <div th:if="${session.loginUser != null}">
                     ようこそ、<a th:text="${session.loginUser.userName}"></a>さん
                     <span class="pipeline">|</span>
-                    <a th:href="@{/logout}">ログアウト</a>
+                    <form th:action="@{/logout}" method="post">
+                        <input type="submit" value="ログアウト" />
+                    </form>
                 </div>
             </div>
     </th:block>

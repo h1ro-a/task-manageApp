@@ -1,0 +1,71 @@
+package com.task_manager.dto;
+
+import java.util.List;
+
+import com.task_manager.entity.Task;
+import com.task_manager.util.TaskErrorType;
+
+import lombok.Getter;
+
+@Getter
+public class TaskListResultDto {
+	
+	private final List<Task> tasks;
+	
+	private final boolean hasTasks;
+	
+	private final String errorMsg;
+	
+	private final TaskErrorType taskErrorType;
+	
+	
+	/** 
+	 * タスクリスト生成成功時のコンストラクタ
+	 * 
+	 * @param tasks
+	 * */
+	private TaskListResultDto(List<Task> tasks) {
+		this.tasks = tasks;
+		this.hasTasks = true;
+		//使用しないフィールドにはnullを入力
+		this.errorMsg = null;
+		this.taskErrorType = null;
+	}
+	
+	/** 
+	 * タスクリスト生成失敗時のコンストラクタ
+	 * 
+	 * @param tasks
+	 * */
+	private TaskListResultDto(String errorMsg, TaskErrorType taskErrorType) {
+		this.hasTasks = false;
+		this.errorMsg = errorMsg;
+		this.taskErrorType = taskErrorType;
+		//使用しないフィールドにはnullを入力
+		this.tasks = null;
+	}
+	
+	/** 
+	 * タスクリスト生成成功時の結果を返すファクトリメソッド
+	 * 
+	 * @param tasks
+	 * @return タスクリスト生成成功を示す{@link TaskListResultDto}インスタンス
+	 * 
+	 * */
+	public static TaskListResultDto succeedTaskListForm(List<Task> tasks) {
+		return new TaskListResultDto(tasks);
+	}
+	
+	/** 
+	 * タスクリスト生成失敗時の結果を返すファクトリメソッド
+	 * 
+	 * @param errorMsg
+	 * @param taskErrorType
+	 * @return タスクリスト生成失敗を示す{@link TaskListResultDto}インスタンス
+	 * 
+	 * */
+	public static TaskListResultDto failedTaskListForm(String errorMsg, TaskErrorType taskErrorType) {
+		return new TaskListResultDto(errorMsg, taskErrorType);
+	}
+
+}

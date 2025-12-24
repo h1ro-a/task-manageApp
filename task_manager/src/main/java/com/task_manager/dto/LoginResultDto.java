@@ -3,17 +3,17 @@ package com.task_manager.dto;
 import com.task_manager.entity.User;
 import com.task_manager.util.LoginErrorType;
 
-import lombok.Data;
-@Data
+import lombok.Getter;
+@Getter
 public class LoginResultDto {
 	
-	private boolean login;
+	private final boolean login;
 	
-	private User loginUser;
+	private final User loginUser;
 	
-	private String errorMsg;
+	private final String errorMsg;
 	
-	private LoginErrorType loginErrorType;
+	private final LoginErrorType loginErrorType;
 	
 	/** 
 	 * ログイン成功時のコンストラクタ
@@ -21,8 +21,11 @@ public class LoginResultDto {
 	 * @param loginUser ログイン成功したユーザー情報
 	 * */
 	private LoginResultDto(User loginUser) {
-		this.loginUser = loginUser;
 		this.login = true;
+		this.loginUser = loginUser;
+		//使用しないフィールドにはnullを入力
+		this.errorMsg = null;
+		this.loginErrorType = null;
 	}
 	
 	/**
@@ -32,9 +35,11 @@ public class LoginResultDto {
 	 * @param loginErrorType
 	 * */
 	private LoginResultDto(String errorMsg, LoginErrorType loginErrorType) {
+		this.login = false;
 		this.errorMsg = errorMsg;
 		this.loginErrorType = loginErrorType;
-		this.login = false;
+		//使用しないフィールドにはnullを入力
+		this.loginUser = null;
 		
 	}
 	
@@ -42,7 +47,7 @@ public class LoginResultDto {
 	 * ログイン成功時の結果を返すファクトリメソッド
 	 * 
 	 * @param loginUser ログイン成功したユーザー情報
-	 * @return ログイン成功を示す{@link LoginResultDto} インスタンス
+	 * @return ログイン成功を示す{@link LoginResultDto}インスタンス
 	 * */
 	public static LoginResultDto succeedLogin(User loginUser) {
 		return new LoginResultDto(loginUser);
@@ -52,10 +57,10 @@ public class LoginResultDto {
 	 * 
 	 * @param errorMsg
 	 * @param loginErrorType
-	 * @return ログイン失敗を示す{@link LoginResultDto} インスタンス
+	 * @return ログイン失敗を示す{@link LoginResultDto}インスタンス
 	 * */
 	
-	public static LoginResultDto failLogin(String errorMsg, LoginErrorType loginErrorType) {
+	public static LoginResultDto failedLogin(String errorMsg, LoginErrorType loginErrorType) {
 		return new LoginResultDto(errorMsg, loginErrorType);
 	}
 

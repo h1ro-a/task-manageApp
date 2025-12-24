@@ -15,7 +15,7 @@ public class ListController {
 	
 	@RequestMapping(path = "/list", method = RequestMethod.GET)
 	public String findAll(Model model) {
-		model.addAttribute("users", searchAllTasksService.execute(false));
+		model.addAttribute("tasks", searchAllTasksService.execute());
 		return "list/list";
 	}
 	

@@ -10,12 +10,9 @@
     <th:block th:fragment="layout-main">
         <h3>ログイン画面</h3>
 <!--         エラーメッセージの出力(入力チェック) -->
-        <p>
-            <span th:each="error:${#fields.detailedErrors()}"> 
-                <span th:text="${error.message}"></span><br />
-            </span>
-            <span th:text="${errMessage}"></span>
-        </p>
+        <div th:if="${loginResultDto != null}">
+            <span th:text="${loginResultDto.errorMsg}"></span>
+        </div>        
 <!--         エラーメッセージの出力(存在チェック) -->
         <div class="login_form">
             <form method="post" th:action="@{/login}" th:object="${loginForm}">

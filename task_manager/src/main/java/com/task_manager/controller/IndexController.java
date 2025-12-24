@@ -1,15 +1,17 @@
 package com.task_manager.controller;
 
 
-import ch.qos.logback.core.net.LoginAuthenticator;
 import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
+import lombok.RequiredArgsConstructor;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -17,14 +19,13 @@ import com.task_manager.dto.LoginResultDto;
 import com.task_manager.form.LoginForm;
 import com.task_manager.service.LoginService;
 
+@RequiredArgsConstructor
 @Controller
 public class IndexController {
 	
-	@Autowired
-	HttpSession session;
+	private final HttpSession session;
 	
-	@Autowired
-	LoginService loginService;
+	private final LoginService loginService;
 	
 	/**
 	 * ログイン画面の初期表示
@@ -32,7 +33,7 @@ public class IndexController {
 	 * @param loginForm
 	 * @return 遷移先ビュー
 	 */
-	@RequestMapping(path = "/", method = RequestMethod.GET)
+	@GetMapping("/")
 	public String index(@ModelAttribute LoginForm loginForm) {
 		session.invalidate();
 		return "index";
@@ -46,17 +47,15 @@ public class IndexController {
 	 * @param result エラー検知オブジェクト
 	 * @param session
 	 * @param model リクエストスコープの操作
-	 * @param 遷移先ビュー
+	 * @return 遷移先ビュー
 	 * 
 	 * */
-	@RequestMapping(path = "/login", method = RequestMethod.POST)
+	@PostMapping("/login")
 	public String login(
 			@Valid @ModelAttribute("loginForm") LoginForm loginForm,
 			BindingResult result,
-			Model model,
-			HttpSession session) {
+			Model model) {
 		//　入力チェック
-		
 		if (result.hasErrors()) {
 			System.out.println("チェック");
 			return "index";
@@ -68,12 +67,18 @@ public class IndexController {
 			session.setAttribute("loginUser", loginResultDto.getLoginUser());
 			return "redirect:/list";
 		} else {
-			model.addAttribute("errMessage", loginResultDto.getErrorMsg());
+			model.addAttribute("loginResultDto", loginResultDto);
 			return "index";
 		}
 	}
 	
-	@RequestMapping(path = "/logout", method = RequestMethod.GET)
+	
+	/** 
+	 * ログアウト処理
+	 * 
+	 * @return ログイン画面
+	 * */
+	@PostMapping("/logout")
 	public String logout() {
 		session.invalidate();
 		return "redirect:/";

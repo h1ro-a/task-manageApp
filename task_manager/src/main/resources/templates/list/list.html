@@ -12,15 +12,12 @@
             <a th:href="@{/regist/input}">新入タスク登録</a>
         </div>
     </th:block>
-<!--     <th:block th:if="${#lists.isEmpty(users)}"> -->
-<!--         <div class="message"> -->
-<!--             <p class="back_to_top_message">該当するタスクは存在しません</p> -->
-<!--             <p class="back_to_top_link"> -->
-<!--                 <a th:href="@{/list}">一覧表示に戻る</a> -->
-<!--             </p> -->
-<!--         </div> -->
-<!--     </th:block> -->
-<!--     <table class="list_table" th:if="!${#lists.isEmpty(users)}"> -->
+    <th:block th:if="${#lists.isEmpty(tasks)}">
+        <div class="message">
+            <a th:href="@{/list}">一覧表示に戻る</a>
+        </div>
+    </th:block>
+    <table class="list_table" th:if="!${#lists.isEmpty(users)}">
 <!--         <tr> -->
 <!--             <th class="empId">社員ID</th> -->
 <!--             <th class="empName">社員名</th> -->
@@ -62,6 +59,6 @@
 <!--                 </td> -->
 <!--             </th:block> -->
 <!--         </tr> -->
-<!--     </table> -->
+    </table>
 </body>
 </html>
