@@ -13,7 +13,7 @@ h3 {
 }
 
 /* ---- タスク登録入力画面へのリンク ---- */
-task.regist_link {
+div.regist_link {
     padding-right: 35px;
     padding-bottom: 10px;
     text-align: right;
@@ -39,31 +39,31 @@ td.data {
     width: 60px;
 }
 
-th.empId {
-    width: 60px;
-}
-
-th.empName {
-    width: 80px;
-}
-
-th.gender {
-    width: 50px;
-}
-
-th.address {
-    width: 80px;
-}
-
-th.birthday {
+th.taskName {
     width: 100px;
 }
 
-th.authority {
+th.taskDscript {
+    width: 150px;
+}
+
+th.dueDate {
+    width: 100px;
+}
+
+th.priority {
     width: 60px;
 }
 
-th.deptName {
+th.status {
+    width: 40px;
+}
+
+th.mngUser {
+    width: 60px;
+}
+
+th.userName {
     width: 60px;
 }
 

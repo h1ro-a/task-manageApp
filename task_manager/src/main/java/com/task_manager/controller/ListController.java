@@ -1,23 +1,27 @@
 package com.task_manager.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.GetMapping;
 
 import com.task_manager.service.SearchAllTasksService;
 
+import lombok.RequiredArgsConstructor;
+
+@RequiredArgsConstructor
 @Controller
 public class ListController {
-	@Autowired
-	SearchAllTasksService searchAllTasksService;
 	
-	@RequestMapping(path = "/list", method = RequestMethod.GET)
+	private final SearchAllTasksService searchAllTasksService;
+	
+	/** 
+	 * タスクの全件表示
+	 * 
+	 * @return タスクリスト
+	 * */
+	@GetMapping("/list")
 	public String findAll(Model model) {
-		model.addAttribute("tasks", searchAllTasksService.execute());
+		model.addAttribute("taskListResultDto", searchAllTasksService.execute());
 		return "list/list";
 	}
-	
-
 }

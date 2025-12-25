@@ -9,56 +9,42 @@
     <h3>タスク一覧画面</h3>
     <th:block th:if="${true}">
         <div class="regist_link">
-            <a th:href="@{/regist/input}">新入タスク登録</a>
+            <a th:href="@{/regist/input}">新規タスク登録</a>
         </div>
     </th:block>
-    <th:block th:if="${#lists.isEmpty(tasks)}">
+    <th:block th:if="${!taskListResultDto.hasTasks}">
         <div class="message">
+            <p th:text="${taskListResultDto.errorMsg}"></p>
             <a th:href="@{/list}">一覧表示に戻る</a>
         </div>
     </th:block>
-    <table class="list_table" th:if="!${#lists.isEmpty(users)}">
-<!--         <tr> -->
-<!--             <th class="empId">社員ID</th> -->
-<!--             <th class="empName">社員名</th> -->
-<!--             <th:block th:if="${true}"> -->
-<!--                 <th class="gender">性別</th> -->
-<!--                 <th class="address">住所</th> -->
-<!--                 <th class="birthday">生年月日</th> -->
-<!--                 <th class="authority">権限</th> -->
-<!--             </th:block> -->
-<!--             <th class="deptName">部署名</th> -->
-<!--             <th:block th:if="${true}"> -->
-<!--                 <th class="button" colspan="2">操作</th> -->
-<!--             </th:block> -->
-<!--         </tr> -->
-<!--         <tr th:each="employee: ${employees}"> -->
-<!--             <td th:text="${employee.empId}"></td> -->
-<!--             <td th:text="${employee.empName}"></td> -->
-<!--             <th:block th:if="${true}"> -->
-<!--                 <td th:switch="${employee.gender}"><span th:case="1">男性</span> -->
-<!--                     <span th:case="2">女性</span></td> -->
-<!--                 <td th:text="${employee.address}"></td> -->
-<!--                 <td th:text="${#dates.format(employee.birthday, 'yyyy/MM/dd')}"></td> -->
-<!--                 <td th:switch="${employee.authority}"><span th:case="1">一般</span> -->
-<!--                     <span th:case="2">管理者</span></td> -->
-<!--             </th:block> -->
-<!--             <td th:text="${employee.deptName}"></td> -->
-<!--             <th:block th:if="${true}"> -->
-<!--                 <td> -->
-<!--                     <form method="get" th:action="@{/update/input}"> -->
-<!--                         <input type="hidden" name="empId" th:value="${employee.empId}" /> -->
-<!--                         <input type="submit" value="変更" /> -->
-<!--                     </form> -->
-<!--                 </td> -->
-<!--                 <td> -->
-<!--                     <form method="get" th:action="@{/delete/check}"> -->
-<!--                         <input type="hidden" name="empId" th:value="${employee.empId}" /> -->
-<!--                         <input type="submit" value="削除" class="delete" /> -->
-<!--                     </form> -->
-<!--                 </td> -->
-<!--             </th:block> -->
-<!--         </tr> -->
+    
+    <table class="list_table" th:if="${taskListResultDto.hasTasks}">
+        <thead>
+	        <tr>
+	            <th class="taskName">タスク名</th>
+	            <th class="taskDscript">タスク説明</th>
+	            <th class="dueDate">期限日</th>
+	            <th class="priority">優先度</th>
+	            <th class="status">ステータス</th>
+	            <th class="mngUser">担当者</th>
+	            <th class="userName">作成者</th>
+	            <th:block th:if="${true}">
+	                <th class="button" colspan="2">操作</th>
+	            </th:block>
+	        </tr>
+        </thead>
+        <tbody>
+            <tr th:each="task : ${taskListResultDto.tasks}">
+                <td th:text="${task.taskName}"></td>
+                <td th:text="${task.taskDscript}"></td>
+                <td th:text="${task.dueDate}"></td>
+                <td th:text="${task.priority}"></td>
+                <td th:text="${task.status}"></td>
+                <td th:text="${task.mngUser}"></td>
+                <td th:text="${task.userId}"></td>
+            </tr>
+        </tbody>
     </table>
 </body>
 </html>
