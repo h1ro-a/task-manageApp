@@ -3,7 +3,7 @@ package com.task_manager.entity;
 import lombok.Data;
 
 @Data
-public class User {
+public class UserEntity {
 	
 	private Integer id;
 	

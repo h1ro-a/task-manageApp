@@ -18,7 +18,7 @@ public class TaskRowForm {
 	
 	private String mngUser;
 	
-	private String userName;
+	private String crtUser;
 	
 	
 

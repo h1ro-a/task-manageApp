@@ -6,7 +6,7 @@ import java.time.OffsetDateTime;
 import lombok.Data;
 
 @Data
-public class Task {
+public class TaskEntity {
 	
 	private Integer taskId;
 	

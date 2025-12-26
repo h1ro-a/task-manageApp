@@ -7,14 +7,14 @@ import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
-import com.task_manager.entity.User;
+import com.task_manager.entity.UserEntity;
 
 @Mapper
 public interface UserMapper {
 	/**　
 	 * ユーザー全件取得 
 	 * */
-	List<User> findAllUsers();
+	List<UserEntity> findAllUsers();
 	
 	/**
 	 * アクティブ状態を指定してユーザーを全件取得 
@@ -22,7 +22,7 @@ public interface UserMapper {
 	 * @param delFlg
 	 * @return アクティブなユーザーエンティティ
 	 * */
-	List<User> findByDelFlgUsers(@Param("delFlg") Boolean delFlg);
+	List<UserEntity> findByDelFlgUsers(@Param("delFlg") Boolean delFlg);
 	
 	/**
 	 * IDを指定してユーザーを取得 
@@ -32,7 +32,7 @@ public interface UserMapper {
 	 * @return 指定したidのユーザーエンティティ
 	 * 
 	 * */
-	List<User> findByIdUser(@Param("id") Integer id, @Param("delFlg") Boolean delFlg);
+	List<UserEntity> findByIdUser(@Param("id") Integer id, @Param("delFlg") Boolean delFlg);
 	
 	
 	/** 
@@ -42,17 +42,18 @@ public interface UserMapper {
 	 * @param delFlg
 	 * @return　ログインするユーザー
 	 * */
-	User findByLoginIdAndPassword(@Param("loginId") String loginId, @Param("password") String password);
+	UserEntity findByLoginIdAndPassword(@Param("loginId") String loginId, @Param("password") String password);
+	
 	
 	/**
 	 * ユーザー登録 
 	 * */
-	User insert();
+	UserEntity insert();
 	
 	/**
 	 * ユーザー削除 
 	 * */
-	User delete();
+	UserEntity delete();
 	
 	
 

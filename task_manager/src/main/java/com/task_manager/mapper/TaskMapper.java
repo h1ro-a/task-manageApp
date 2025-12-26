@@ -5,7 +5,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
-import com.task_manager.entity.Task;
+import com.task_manager.entity.TaskEntity;
 
 @Mapper
 public interface TaskMapper {
@@ -14,7 +14,7 @@ public interface TaskMapper {
 	 * @return 全てのタスクエンティティ
 	 * 
 	 * */
-	List<Task> findAllTasks();
+	List<TaskEntity> findAllTasks();
 	
 	/** 
 	 * 削除していないタスクを全件取得
@@ -22,7 +22,7 @@ public interface TaskMapper {
 	 * @param delFlg
 	 * @return アクティブなタスクエンティティ
 	 * */
-	List<Task> findByDelFlgTasks(@Param("delFlg") Boolean delFlg);
+	List<TaskEntity> findByDelFlgTasks(@Param("delFlg") Boolean delFlg);
 	
 	
 

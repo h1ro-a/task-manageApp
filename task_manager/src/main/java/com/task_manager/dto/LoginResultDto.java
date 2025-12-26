@@ -1,6 +1,6 @@
 package com.task_manager.dto;
 
-import com.task_manager.entity.User;
+import com.task_manager.entity.UserEntity;
 import com.task_manager.util.LoginErrorType;
 
 import lombok.Getter;
@@ -9,7 +9,7 @@ public class LoginResultDto {
 	
 	private final boolean login;
 	
-	private final User loginUser;
+	private final UserEntity loginUser;
 	
 	private final String errorMsg;
 	
@@ -20,7 +20,7 @@ public class LoginResultDto {
 	 * 
 	 * @param loginUser ログイン成功したユーザー情報
 	 * */
-	private LoginResultDto(User loginUser) {
+	private LoginResultDto(UserEntity loginUser) {
 		this.login = true;
 		this.loginUser = loginUser;
 		//使用しないフィールドにはnullを入力
@@ -49,7 +49,7 @@ public class LoginResultDto {
 	 * @param loginUser ログイン成功したユーザー情報
 	 * @return ログイン成功を示す{@link LoginResultDto}インスタンス
 	 * */
-	public static LoginResultDto succeedLogin(User loginUser) {
+	public static LoginResultDto succeedLogin(UserEntity loginUser) {
 		return new LoginResultDto(loginUser);
 	}
 	/** 

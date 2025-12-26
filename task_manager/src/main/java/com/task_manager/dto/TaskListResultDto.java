@@ -2,7 +2,7 @@ package com.task_manager.dto;
 
 import java.util.List;
 
-import com.task_manager.entity.Task;
+import com.task_manager.form.TaskRowForm;
 import com.task_manager.util.TaskErrorType;
 
 import lombok.Getter;
@@ -10,7 +10,7 @@ import lombok.Getter;
 @Getter
 public class TaskListResultDto {
 	
-	private final List<Task> tasks;
+	private final List<TaskRowForm> tasks;
 	
 	private final boolean hasTasks;
 	
@@ -24,7 +24,7 @@ public class TaskListResultDto {
 	 * 
 	 * @param tasks
 	 * */
-	private TaskListResultDto(List<Task> tasks) {
+	private TaskListResultDto(List<TaskRowForm> tasks) {
 		this.tasks = tasks;
 		this.hasTasks = true;
 		//使用しないフィールドにはnullを入力
@@ -48,11 +48,11 @@ public class TaskListResultDto {
 	/** 
 	 * タスクリスト生成成功時の結果を返すファクトリメソッド
 	 * 
-	 * @param tasks
+	 * @param tasks {@link TaskRowForm}のリスト
 	 * @return タスクリスト生成成功を示す{@link TaskListResultDto}インスタンス
 	 * 
 	 * */
-	public static TaskListResultDto succeedTaskListForm(List<Task> tasks) {
+	public static TaskListResultDto succeedTaskListForm(List<TaskRowForm> tasks) {
 		return new TaskListResultDto(tasks);
 	}
 	
