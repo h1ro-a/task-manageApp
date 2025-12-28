@@ -3,7 +3,7 @@
     th:replace="~{common/layout_4block :: layout(~{::body/content()})}">
 <head>
 <title>タスク一覧｜タスク管理システム</title>
-<meta charset="UTF-8"></meta>
+<meta charset="UTF-8">
 </head>
 <body>
     <h3>タスク一覧画面</h3>
@@ -14,11 +14,7 @@
     </th:block>
     <th:block th:if="${!taskListResultDto.hasTasks}">
         <div class="message">
-            <th:block th:switch="${taskListResultDto.taskErrorType}">
-	            <p th:case="${T(com.task_manager.util.TaskErrorType).TASK_NO_DATA}">
-	                表示するタスクがありません
-	            </p>
-            </th:block>
+            <p th:text="${taskListResultDto.errorMsg}"></p>
             <a th:href="@{/list}">一覧表示に戻る</a>
         </div>
     </th:block>
@@ -29,10 +25,10 @@
 	            <th class="taskName">タスク名</th>
 	            <th class="taskDscript">タスク説明</th>
 	            <th class="dueDate">期限日</th>
-	            <th class="priorityLabel">優先度</th>
-	            <th class="statusLabel">ステータス</th>
+	            <th class="priority">優先度</th>
+	            <th class="status">ステータス</th>
 	            <th class="mngUser">担当者</th>
-	            <th class="crtUser">作成者</th>
+	            <th class="userName">作成者</th>
 	            <th:block th:if="${true}">
 	                <th class="button" colspan="2">操作</th>
 	            </th:block>
@@ -43,10 +39,10 @@
                 <td th:text="${task.taskName}"></td>
                 <td th:text="${task.taskDscript}"></td>
                 <td th:text="${task.dueDate}"></td>
-                <td th:text="${task.priorityLabel}"></td>
-                <td th:text="${task.statusLabel}"></td>
+                <td th:text="${task.priority}"></td>
+                <td th:text="${task.status}"></td>
                 <td th:text="${task.mngUser}"></td>
-                <td th:text="${task.crtUser}"></td>
+                <td th:text="${task.userId}"></td>
             </tr>
         </tbody>
     </table>

@@ -4,7 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import com.task_manager.service.SearchAllTasksService;
+import com.task_manager.service.ViewAllTasksService;
 
 import lombok.RequiredArgsConstructor;
 
@@ -12,7 +12,7 @@ import lombok.RequiredArgsConstructor;
 @Controller
 public class ListController {
 	
-	private final SearchAllTasksService searchAllTasksService;
+	private final ViewAllTasksService searchAllTasksService;
 	
 	/** 
 	 * タスクの全件表示

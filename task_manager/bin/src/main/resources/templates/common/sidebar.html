@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+</head>
+<body>
+    <aside th:fragment="layout-sidebar" th:class="${session.loginUser != null}">
+        <div class="title">タスク名検索</div>
+        
+        <div class="form">
+            <form th:action="@{/list/taskName}" method="get"></form>
+        </div>
+    </aside>
+</body>
+</html>

@@ -1,6 +1,5 @@
 package com.task_manager.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.task_manager.dto.LoginResultDto;
@@ -9,11 +8,13 @@ import com.task_manager.form.LoginForm;
 import com.task_manager.mapper.UserMapper;
 import com.task_manager.util.LoginErrorType;
 
+import lombok.RequiredArgsConstructor;
+
+@RequiredArgsConstructor
 @Service
 public class LoginService {
 	
-	@Autowired
-	private UserMapper mapper;
+	private final UserMapper mapper;
 	
 	/** 
 	 * ログイン処理

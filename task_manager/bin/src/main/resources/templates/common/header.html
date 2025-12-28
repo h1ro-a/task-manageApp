@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+    <th:block id="header" th:fragment="layout-header">
+        <div class="content">
+            <div class="title">タスク管理システム</div>
+                <div th:if="${session.loginUser != null}">
+                    ようこそ、<a th:text="${session.loginUser.userName}"></a>さん
+                    <span class="pipeline">|</span>
+                    <form id="logoutForm" th:action="@{/logout}" method="post" style="display:inline;">
+                        <a href="javascript:void(0);" onclick="document.getElementById('logoutForm').submit();">
+                            ログアウト
+                        </a>
+                    </form>
+                </div>
+            </div>
+    </th:block>
+</body> 

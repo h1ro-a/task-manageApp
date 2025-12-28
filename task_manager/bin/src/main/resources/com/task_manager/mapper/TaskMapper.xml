@@ -4,24 +4,15 @@
 <mapper namespace="com.task_manager.mapper.TaskMapper">
     <!-- 全件検索 -->
     <select id="findAllTasks"
-        resultType="com.task_manager.entity.TaskEntity">
+        resultType="com.task_manager.entity.Task">
         SELECT *
         FROM tasks
     </select>
-    
     <!--　削除していないタスクを全件取得 -->
     <select id="findByDelFlgTasks"
-        resultType="com.task_manager.entity.TaskEntity">
+        resultType="com.task_manager.entity.Task">
         SELECT * 
         FROM tasks
         WHERE del_flg = #{delFlg}
     </select>
-    
-    <!--　タスク名の完全一致・部分一致検索を行い該当するタスクを取得 -->
-    <select id="findByTaskName"
-        resultType="com.task_manager.entity.TaskEntity">
-        SELECT *
-        FROM tasks
-        WHERE del_flg = #{delFlg} AND task_name LIKE CONCAT ('%', #{taskName}, '%')
-        </select>
 </mapper>
