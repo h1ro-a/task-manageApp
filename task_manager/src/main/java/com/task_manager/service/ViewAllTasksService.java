@@ -29,14 +29,14 @@ public class ViewAllTasksService {
 	/** 
 	 * 削除していないタスクを全件取得
 	 * 
-	 * @return タスクリストの生成が成功した場合は{@link TaskListResultDto}クラスのタスクリスト、失敗した場合はエラーメッセージとエラータイプを返す。
+	 * @return タスクリストの生成が成功した場合は{@link TaskListResultDto}クラスのタスクリスト、失敗した場合はエラーメッセージとエラータイプ
 	 * */
 	public TaskListResultDto execute() {
 		List<TaskEntity> taskEntities = this.taskMapper.findByDelFlgTasks(false);
 		if (taskEntities == null || taskEntities.isEmpty()) {
-			return TaskListResultDto.failedTaskListForm("表示するタスクがありません", TaskErrorType.TASK_NO_DATA);
+			return TaskListResultDto.failedTaskListForm(TaskErrorType.TASK_NO_DATA);
 		} else {
-			//1.全ユーザーを一度だけ取得して、IDをキーにしたMapを作成
+			//1.全ユーザーを一度だけ取得して、IDをキー、ユーザー名をValueにしたMapを作成
 			Map<Integer, String> userMap = userMapper.findAllUsers().stream()
 					.collect(Collectors.toMap(
 							UserEntity::getId,
