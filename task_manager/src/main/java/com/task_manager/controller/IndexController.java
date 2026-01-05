@@ -38,7 +38,7 @@ public class IndexController {
 		session.invalidate();
 		return "index";
 		
-	}
+	} 
 	
 	/** 
 	 * ログイン画面『ログイン』ボタン押下

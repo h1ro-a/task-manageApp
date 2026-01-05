@@ -8,7 +8,11 @@
         <div class="title">タスク名検索</div>
         
         <div class="form">
-            <form th:action="@{/list/taskName}" method="get"></form>
+            <form th:action="@{/list/taskName}" method="get" th:object="${searchTaskNameForm}">
+                <input type="text" th:field="*{searchTaskName}">
+                
+                <input type="submit" value="検索">
+            </form>
         </div>
     </aside>
 </body>
