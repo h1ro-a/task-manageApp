@@ -15,7 +15,9 @@
     </header>
     <div class="content">
 <!--         /* サイドバー */ -->
-        <div th:replace="~{common/sidebar :: layout-sidebar}"></div>
+        <th:block th:if="${searchTaskNameForm != null}">
+	        <div th:replace="~{common/sidebar :: layout-sidebar}"></div>
+        </th:block>
 <!--         /* メイン */ -->
         <article class="main">
             <div th:replace="${body}"></div>

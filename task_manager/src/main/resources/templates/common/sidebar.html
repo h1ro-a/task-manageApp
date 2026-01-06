@@ -4,16 +4,15 @@
 <meta charset="UTF-8">
 </head>
 <body>
-    <aside th:fragment="layout-sidebar" th:class="${session.loginUser != null}">
-        <div class="title">タスク名検索</div>
-        
-        <div class="form">
-            <form th:action="@{/list/taskName}" method="get" th:object="${searchTaskNameForm}">
-                <input type="text" th:field="*{searchTaskName}">
-                
-                <input type="submit" value="検索">
-            </form>
-        </div>
-    </aside>
+    <div th:fragment="layout-sidebar">
+	<div class="title">タスク名検索</div>
+		<div class="form">
+		    <form th:action="@{/list/taskName}" method="get" th:object="${searchTaskNameForm}">
+		        <input type="text" th:field="*{searchTaskName}">
+		        
+		        <input type="submit" value="検索">
+		    </form>
+		</div>
+    </div>
 </body>
 </html>

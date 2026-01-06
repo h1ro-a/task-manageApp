@@ -20,7 +20,7 @@ div.regist_link {
 }
 
 /* ---- タスク情報一覧テーブル ---- */
-table {
+list-table {
     background-color: #FFFFFF;
     border-color: #8dd0a7;
     border-width: 1px;
@@ -82,7 +82,7 @@ table td {
 /* ---- 入力フォーム(検索、登録、変更、削除) ---- */
 div.form {
     display: flex;
-    width: 720px;
+    width: 72px;
     margin: 0px auto;
 }
 

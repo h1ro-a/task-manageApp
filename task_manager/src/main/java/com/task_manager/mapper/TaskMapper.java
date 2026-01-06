@@ -33,7 +33,16 @@ public interface TaskMapper {
 	 * */
 	List<TaskEntity> findByTaskName(@Param("delFlg") Boolean delFlg, @Param("taskName") String taskName);
 
-	
+	/** 
+	 * 新規タスク登録
+	 * 
+	 * @param taskName タスク名
+	 * @param taskDscript 説明
+	 * @param dueDate 期限日
+	 * @param priority 優先度
+	 * @param status ステータス
+	 * @param 
+	 * */
 	
 
 

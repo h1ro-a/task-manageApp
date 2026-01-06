@@ -30,8 +30,9 @@ public class ListController {
 	 * @return タスクリスト
 	 * */
 	@GetMapping("/list")
-	public String findAll(@ModelAttribute("taskListResultDto") Model model) {
-		model.addAttribute(viewAllTasksService.execute());
+	public String findAll(@ModelAttribute("searchTaskNameForm") SearchTaskNameForm searchTaskNameForm,
+			Model model) {
+		model.addAttribute("taskListResultDto", viewAllTasksService.execute());
 		return "list/list";
 	}
 	
