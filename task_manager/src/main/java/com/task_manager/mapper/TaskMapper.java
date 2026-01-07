@@ -1,5 +1,7 @@
 package com.task_manager.mapper;
 
+import java.sql.Date;
+import java.time.OffsetDateTime;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
@@ -36,13 +38,24 @@ public interface TaskMapper {
 	/** 
 	 * 新規タスク登録
 	 * 
+	 * @param userId ログインユーザーID
 	 * @param taskName タスク名
 	 * @param taskDscript 説明
 	 * @param dueDate 期限日
 	 * @param priority 優先度
 	 * @param status ステータス
-	 * @param 
+	 * @param delFlg 削除フラグ
+	 * @param mngUser 担当者
+	 * @param rgstTime 登録日時
+	 * @param updtUser 作成者
+	 * @param updtTime 作成日時
 	 * */
+	List<TaskEntity> createTask(@Param("userId") Integer userId, @Param("taskName") String taskName,
+			@Param("taskDscript") String taskDscript, @Param("dueDate") Date dueDate,
+			@Param("priority") Integer priority, @Param("status") Integer status,
+			@Param("delFlg") Boolean delFlg, @Param("mngUser") Integer mngUser,
+			@Param("rgstTime") OffsetDateTime rgstTime, @Param("updtUser") Integer updtUser,
+			@Param("updtTime") OffsetDateTime updtTime);
 	
 
 

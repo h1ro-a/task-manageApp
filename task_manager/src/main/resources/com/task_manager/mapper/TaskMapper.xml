@@ -23,5 +23,35 @@
         SELECT *
         FROM tasks
         WHERE del_flg = #{delFlg} AND task_name LIKE CONCAT ('%', #{taskName}, '%')
-        </select>
+    </select>
+    
+    <!-- 新規タスク登録 -->
+    <select id="createTask"
+        resultType="com.task_manager.entity.TaskEntity">
+        INSERT INTO tasks (
+            user_id,
+            task_name,
+            task_dscript,
+            due_date,
+            priority,
+            status, 
+            del_flg,
+            mng_user,
+            rgst_time,
+            updt_user,
+            updt_time)
+        VALUES (
+            #{userId},
+            #{taskName},
+            #{taskDscript},
+            #{dueDate},
+            #{priority},
+            #{status},
+            #{delFlg},
+            #{mngUser},
+            CURRENT_TIMESTAMPTZ,
+            #{updtUser},
+            CURRENT_TIMESTAMPTZ)
+    </select>
+    
 </mapper>

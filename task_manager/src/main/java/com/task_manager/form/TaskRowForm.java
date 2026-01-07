@@ -4,6 +4,7 @@ import lombok.Data;
 
 @Data
 public class TaskRowForm {
+	
 	private Integer id;
 	
 	private String taskName;
@@ -20,6 +21,4 @@ public class TaskRowForm {
 	
 	private String crtUser;
 	
-	
-
 }
