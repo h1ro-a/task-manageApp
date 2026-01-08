@@ -1,4 +1,4 @@
-package com.task_manager.converter;
+package com.task_manager.converter.view;
 
 import java.text.SimpleDateFormat;
 import java.util.Map;

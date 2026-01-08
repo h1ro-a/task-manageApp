@@ -6,7 +6,7 @@ import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
 
-import com.task_manager.converter.TaskRowConverter;
+import com.task_manager.converter.view.TaskRowConverter;
 import com.task_manager.dto.TaskListResultDto;
 import com.task_manager.entity.TaskEntity;
 import com.task_manager.entity.UserEntity;

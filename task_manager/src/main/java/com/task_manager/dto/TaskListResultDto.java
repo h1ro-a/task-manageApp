@@ -14,8 +14,6 @@ public class TaskListResultDto {
 	
 	private final boolean hasTasks;
 	
-//	private final String errorMsg;
-	
 	private final TaskErrorType taskErrorType;
 	
 	
@@ -27,8 +25,6 @@ public class TaskListResultDto {
 	private TaskListResultDto(List<TaskRowForm> tasks) {
 		this.tasks = tasks;
 		this.hasTasks = true;
-		//使用しないフィールドにはnullを入力
-//		this.errorMsg = null;
 		this.taskErrorType = null;
 	}
 	
@@ -39,7 +35,6 @@ public class TaskListResultDto {
 	 * */
 	private TaskListResultDto(TaskErrorType taskErrorType) {
 		this.hasTasks = false;
-//		this.errorMsg = errorMsg;
 		this.taskErrorType = taskErrorType;
 		//使用しないフィールドにはnullを入力
 		this.tasks = null;
@@ -50,7 +45,6 @@ public class TaskListResultDto {
 	 * 
 	 * @param tasks {@link TaskRowForm}のリスト
 	 * @return タスクリスト生成成功を示す{@link TaskListResultDto}インスタンス
-	 * 
 	 * */
 	public static TaskListResultDto succeedTaskListForm(List<TaskRowForm> tasks) {
 		return new TaskListResultDto(tasks);
@@ -59,10 +53,8 @@ public class TaskListResultDto {
 	/** 
 	 * タスクリスト生成失敗時の結果を返すファクトリメソッド
 	 * 
-	 * @param errorMsg
 	 * @param taskErrorType
 	 * @return タスクリスト生成失敗を示す{@link TaskListResultDto}インスタンス
-	 * 
 	 * */
 	public static TaskListResultDto failedTaskListForm(TaskErrorType taskErrorType) {
 		return new TaskListResultDto(taskErrorType);
