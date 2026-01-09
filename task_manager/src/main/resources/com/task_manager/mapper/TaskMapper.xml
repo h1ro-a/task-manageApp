@@ -26,8 +26,8 @@
     </select>
     
     <!-- 新規タスク登録 -->
-    <select id="createTask"
-        resultType="com.task_manager.entity.TaskEntity">
+    <insert id="createTask"
+        parameterType="com.task_manager.entity.TaskEntity">
         INSERT INTO tasks (
             user_id,
             task_name,
@@ -52,6 +52,6 @@
             CURRENT_TIMESTAMPTZ,
             #{updtUser},
             CURRENT_TIMESTAMPTZ)
-    </select>
+    </insert>
     
 </mapper>

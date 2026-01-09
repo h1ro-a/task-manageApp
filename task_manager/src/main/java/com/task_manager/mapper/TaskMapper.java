@@ -38,24 +38,10 @@ public interface TaskMapper {
 	/** 
 	 * 新規タスク登録
 	 * 
-	 * @param userId ログインユーザーID
-	 * @param taskName タスク名
-	 * @param taskDscript 説明
-	 * @param dueDate 期限日
-	 * @param priority 優先度
-	 * @param status ステータス
-	 * @param delFlg 削除フラグ
-	 * @param mngUser 担当者
-	 * @param rgstTime 登録日時
-	 * @param updtUser 作成者
-	 * @param updtTime 作成日時
+	 * @param taskEntity 登録するタスクエンティティ
 	 * */
-	List<TaskEntity> createTask(@Param("userId") Integer userId, @Param("taskName") String taskName,
-			@Param("taskDscript") String taskDscript, @Param("dueDate") Date dueDate,
-			@Param("priority") Integer priority, @Param("status") Integer status,
-			@Param("delFlg") Boolean delFlg, @Param("mngUser") Integer mngUser,
-			@Param("rgstTime") OffsetDateTime rgstTime, @Param("updtUser") Integer updtUser,
-			@Param("updtTime") OffsetDateTime updtTime);
+	void createTask(TaskEntity taskEntity);
+	
 	
 
 

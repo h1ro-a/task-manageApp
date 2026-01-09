@@ -30,12 +30,13 @@ public class CreateTaskService {
 		TaskEntity taskEntity = createTaskCommandConverter.convert(createTaskForm);
 		
 		if (taskEntity == null || taskEntity.getTaskName().isEmpty()
-				|| taskEntity.getDueDate() == null
+				|| taskEntity.getDueDate() == null 
 				|| taskEntity.getPriority() == null
 				|| taskEntity.getStatus() == null
 				|| taskEntity.getMngUser() == null) {
 			return TaskCreateResultDto.failed(TaskErrorType.TASK_INFO_INCOMPLETE);
 		} else {
+			taskMapper.createTask(taskEntity);
 			return TaskCreateResultDto.succeed();
 		}
 	} 
