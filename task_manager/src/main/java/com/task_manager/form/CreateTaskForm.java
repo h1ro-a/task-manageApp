@@ -1,24 +1,34 @@
 package com.task_manager.form;
 
+import java.sql.Date;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
 @Data
 public class CreateTaskForm {
-
-	private Integer id;
 	
+	@NotBlank
 	private String taskName;
 	
 	private String taskDscript;
 	
-	private String dueDate;
+	@NotNull
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	private Date dueDate;
 	
-	private String priorityLabel;
+	@NotNull
+	private Integer priority;
 	
-	private String statusLabel;
+	@NotNull
+	private Integer status;
 	
-	private String mngUser;
+	@NotNull
+	private Integer mngUser;
 	
-	private String crtUser;
+	
 	
 }
