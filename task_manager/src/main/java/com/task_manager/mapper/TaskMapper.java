@@ -1,7 +1,5 @@
 package com.task_manager.mapper;
 
-import java.sql.Date;
-import java.time.OffsetDateTime;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;

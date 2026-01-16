@@ -1,7 +1,6 @@
 package com.task_manager.converter.command;
 
 import org.springframework.stereotype.Component;
-import com.task_manager.TaskManagerApplication;
 import com.task_manager.entity.TaskEntity;
 import com.task_manager.form.CreateTaskForm;
 
@@ -11,14 +10,18 @@ public class CreateTaskCommandConverter {
 	/** 
 	 * {@link CreateTaskForm}型のオブジェクトを{@link TaskEntity}に変換する
 	 * 
+	 * @param createTaskForm {@link CreateTaskForm}型のオブジェクト
+	 * @return taskEntity {@link TaskEntity}型の成形済のオブジェクト
+	 * 
 	 * */
 	public TaskEntity convert(CreateTaskForm createTaskForm) {
 		TaskEntity taskEntity = new TaskEntity();
 		taskEntity.setTaskName(trimToNull(createTaskForm.getTaskName()));
 		taskEntity.setTaskDscript(trimToNull(createTaskForm.getTaskDscript()));
 		taskEntity.setDueDate(createTaskForm.getDueDate());
-		taskEntity.setPriority(null);
-		
+		taskEntity.setPriority(createTaskForm.getPriority());
+		taskEntity.setStatus(createTaskForm.getStatus());
+		taskEntity.setMngUser(createTaskForm.getMngUser());
 		return taskEntity;
 	}
 	

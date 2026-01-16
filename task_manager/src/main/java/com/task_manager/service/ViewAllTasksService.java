@@ -26,6 +26,7 @@ public class ViewAllTasksService {
 	private final UserMapper userMapper;
 
 	private final TaskRowConverter taskRowConverter;
+	
 	/** 
 	 * 削除していないタスクを全件取得
 	 * 

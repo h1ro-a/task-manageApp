@@ -51,4 +51,5 @@ public class ListController {
 		return "list/list";
 		
 	}
+	
 }
